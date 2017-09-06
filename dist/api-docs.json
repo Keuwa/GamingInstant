@@ -1,0 +1,257 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "EZScale spec",
+    "description": "EZScale spec for Swagger",
+    "termsOfService": "http://swagger.io/terms/"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Requests for authentification"
+    },
+    {
+      "name": "Users",
+      "description": "Requests for user"
+    },
+    {
+      "name": "Game",
+      "description": "Requests for game"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Authentification",
+        "description": "Authentification",
+        "operationId": "for the URL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Job Parameters",
+            "in": "body",
+            "description": "Create User with params asking",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions/auth/auth.json#/userAuth"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "user added with success",
+            "schema": {
+              "$ref": "./definitions/user/user.json#/User"
+            }
+          }
+        }
+      }
+    },
+    "/users/": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create user",
+        "description": "Create user with user params",
+        "operationId": "for the URL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Job Parameters",
+            "in": "body",
+            "description": "Create User with params asking",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions/user/createUser.json#/UserCreate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User added with success",
+            "schema": {
+              "$ref": "./definitions/user/user.json#/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update user",
+        "description": "Update user with user params",
+        "operationId": "for the URL",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Job Parameters",
+            "in": "body",
+            "description": "Update User with params asking",
+            "required": true,
+            "schema": {
+              "$ref": "./definitions/user/user.json#/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User edited with success",
+            "schema": {
+              "$ref": "./definitions/user/user.json#/User"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "List user",
+        "description": "Get all user",
+        "operationId": "get",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "All user response",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "./definitions/user/user.json#/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{steamId}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find user by ID",
+        "description": "Return a single user",
+        "operationId": "getUserById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "steamId",
+            "in": "path",
+            "description": "ID of user to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User response",
+            "schema": {
+              "$ref": "./definitions/user/user.json#/User"
+            }
+          }
+        }
+      }
+    },
+    "/game/": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Init game db",
+        "description": "Init game db",
+        "operationId": "Init",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Init succeedeed",
+            "schema": {
+              "$ref": "./definitions/user/user.json#/User"
+            }
+          }
+        }
+      }
+    },
+    "/game/{gameId}": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get game by id",
+        "description": "Get game by id",
+        "operationId": "Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "gameId",
+            "in": "path",
+            "description": "ID of game to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Got game",
+            "schema": {
+              "$ref": "./definitions/game/game.json#/Game"
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "x-auth-token",
+      "in": "header"
+    },
+    "auth_key": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "400error": {
+    "properties": {
+      "message": {
+        "type": "string",
+        "example": "400 Bad Request"
+      }
+    }
+  }
+}

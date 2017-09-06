@@ -1,0 +1,15 @@
+{
+  "Game": {
+    "type": "object",
+    "properties": {
+      "appid": {
+        "type": "String",
+        "example": "236543-dsd5454sd-ds54"
+      },
+      "name": {
+        "type": "String",
+        "example": "HOTS"
+      }
+    }
+  }
+}

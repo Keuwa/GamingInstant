@@ -1,0 +1,13 @@
+{
+  "definitions": {
+    "responseId": {
+      "properties": {
+        "email": {
+          "required": true,
+          "type": "int",
+          "example": 55454884
+        }
+      }
+    }
+  }
+}

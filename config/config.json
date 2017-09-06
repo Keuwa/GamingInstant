@@ -1,0 +1,29 @@
+{
+  "TOKEN_SECRET": "s3cr3t_t0k3n",
+  "port": 3000,
+  "domain": "localhost",
+  "db": {
+    "development": {
+      "username": "root",
+      "password": "1234",
+      "database": "dbGamingInstant",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "ezpesee",
+      "password": "ezpeseeSQL",
+      "database": "dbGamingInstant",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "ezpesee",
+      "password": "ezpeseeSQL",
+      "database": "dbGamingInstant",
+      "host": "127.0.0.1",
+      "dialect": "mysql",
+      "port": "3306"
+    }
+  }
+}

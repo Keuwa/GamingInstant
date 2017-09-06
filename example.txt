@@ -1,0 +1,17 @@
+API KEY STEAM : 1F90FB9A49F4A36356B1C3F3AB2088ED
+https://partner.steamgames.com/doc/api
+
+
+Get all games
+http://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json
+
+
+
+http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=1F90FB9A49F4A36356B1C3F3AB2088ED&steamid=76561198080877227&format=json
+{
+				"appid": 359521,
+				"name": "Survarium - Ultimate Steam Starter Pack"
+}
+
+Get info by game
+http://store.steampowered.com/api/appdetails?appids=APPID

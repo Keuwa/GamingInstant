@@ -1,0 +1,34 @@
+{
+  "UserCreate": {
+    "type": "object",
+    "required": [
+      "steamId",
+      "birthdate",
+      "gender",
+      "profession",
+      "password"
+    ],
+    "properties": {
+      "steamId": {
+        "type": "String",
+        "example": "236543-dsd5454sd-ds54"
+      },
+      "birthdate": {
+        "type": "String",
+        "example": "1993-08-01"
+      },
+      "profession": {
+        "type": "String",
+        "example": "Student"
+      },
+      "password": {
+        "type": "String",
+        "example": "password"
+      },
+      "gender": {
+        "type": "String",
+        "example": "M"
+      }
+    }
+  }
+}

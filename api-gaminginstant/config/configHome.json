@@ -1,0 +1,29 @@
+{
+  "TOKEN_SECRET": "s3cr3t_t0k3n",
+  "port": 3000,
+  "domain": "localhost",
+  "db": {
+    "development": {
+      "username": "root",
+      "password": "1234",
+      "database": "dbmyassos",
+      "host": "localhost",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": "1234",
+      "database": "dbmyassos",
+      "host": "localhost",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": "1234",
+      "database": "dbmyassos",
+      "host": "localhost",
+      "dialect": "mysql",
+      "port": "3306"
+    }
+  }
+}

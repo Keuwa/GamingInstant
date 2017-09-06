@@ -1,0 +1,37 @@
+{
+  "AssociationsUser": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "String",
+        "example": "15151-ze1e5"
+      },
+      "name": {
+        "type": "String",
+        "example": "La Flotte"
+      },
+      "describe": {
+        "type": "String",
+        "example": "Association de marin"
+      },
+      "picture": {
+        "required": true,
+        "type":"String",
+        "example": "Base64String"
+      },
+      "createdAt": {
+        "type": "String",
+        "example": "2016-04-03T14:08:46.000Z"
+      },
+      "status": {
+        "type": "String",
+        "enum": [
+          "PRESIDENT",
+          "ADMIN",
+          "MEMBER",
+          "PENDING"
+        ]
+      }
+    }
+  }
+}

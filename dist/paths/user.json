@@ -1,0 +1,55 @@
+{
+    "paths": {
+      "/user/": {
+        "post": {
+          "tags": [
+            "User"
+          ],
+          "description": "Create user with user params",
+          "operationId": "for the URL",
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Job Parameters",
+              "in": "body",
+              "description": "Create User with params asking",
+              "required": true,
+              "schema": {
+                "$ref": "./definitions/user.json#/definitions/user"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "user add with success",
+              "schema": {
+                "$ref": "./definitions/user.json#/definitions/responseCreate"
+              }
+            }
+          }
+        }
+      },
+      "/users/": {
+        "get": {
+          "tags": [
+            "User"
+          ],
+          "description": "get all user",
+          "operationId": "get",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "delete response",
+              "schema": {
+                "$ref": "./definitions/user.json#/definitions/user"
+              }
+            }
+          }
+        }
+      }
+    }
+}
