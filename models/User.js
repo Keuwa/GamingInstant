@@ -8,7 +8,8 @@ module.exports = function (sequelize, Datatypes) {
         steamId: {
             type: Datatypes.UUID,
             defaultValue: Datatypes.UUIDV4,
-            primaryKey: true
+            primaryKey: true,
+            index: true
         },
         birthdate: {
             type: Datatypes.STRING,

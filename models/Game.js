@@ -7,7 +7,8 @@ module.exports = function (sequelize, Datatypes) {
         appid: {
             type: Datatypes.UUID,
             defaultValue: Datatypes.UUIDV4,
-            primaryKey: true
+            primaryKey: true,
+            index: true
         },
         name: Datatypes.STRING,
         required_age: Datatypes.INTEGER,
