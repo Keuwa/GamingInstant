@@ -18,13 +18,11 @@ module.exports = function (server) {
     request.get(options)
     .then(function(result) {
       console.log(result);
-      var i = 0;
-      models.Game.upsert(result.applist.apps[i])
-      .then(function (added) {
-
-      }).catch(function (err) {
-        errNum ++;
-      });
+      for (var i = 0, len = result.applist.apps.length; i < len; i++) {
+          models.Game.upsert(result.applist.apps[i])
+          .catch(function (err) {
+          });
+      }
       return res.status(200).send('Created');
     }).catch(function(err) {
       console.log(err);

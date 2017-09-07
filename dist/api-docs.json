@@ -200,6 +200,28 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get game db",
+        "description": "Get game db",
+        "operationId": "getAll",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Got the list",
+            "schema": {
+              "$ref": "./definitions/game/game.json#/Game"
+            }
+          }
+        }
       }
     },
     "/game/{gameId}": {
