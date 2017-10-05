@@ -15,5 +15,15 @@ module.exports = function (sequelize, Datatypes) {
         price: Datatypes.STRING
     });
 
+    Game.associate = function(models) {
+        //Game.hasMany(models.Category);
+        Game.belongsToMany(models.Category,
+          {
+            as: 'Game',
+            allowNull: true,
+            through: 'category_game'
+          })
+      }
+
     return Game;
 };

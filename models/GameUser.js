@@ -19,5 +19,6 @@ module.exports = function (sequelize, Datatypes) {
         playedTime: Datatypes.FLOAT
     });
 
+
     return GameUser;
 };

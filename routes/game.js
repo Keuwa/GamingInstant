@@ -9,6 +9,7 @@ module.exports = function(server){
 
   .get('/',
   server.actions.game.getAll)
+
   .get('/:gameId',
   server.actions.game.get)
 
