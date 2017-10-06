@@ -210,21 +210,37 @@ module.exports = function (server) {
                       models.Game
                         .findOne({id:gameid})
                         .then(function (game) {
-
-                           console.log("Results : ",results);
-                          // if(results[result][game.appid].success){
-                          //   if(typeof(results[result][game.appid].price_overview) != "undefined"){
-                          //     price =  console.log("price : ",results[result][game.appid].price_overview.final);
-                          //   }else{
-                          //     price = 0
-                          //   }
-                          //   age = results[result][game.appid].data.required_age
-                          //   categories = results[result][game.appid].data.genres
-                          //   console.log(categories,"\n");
-                          //   models.Category.findOrCreate(categories[0]).then(function (a) {
-                          //     console.log("CREATED",a);
-                          //   })
-                          // }
+                           for(let i in results){
+                             if(Object.keys(results[i])[0] == gameid){
+                               if(results[i][gameid].success){
+                                 if(typeof(results[i][gameid].price_overview) != "undefined"){
+                                   price =  console.log("price : ",results[i][gameid].price_overview.final);
+                                 }else{
+                                   price = 0
+                                 }
+                                 age = results[i][gameid].data.required_age
+                                 categories = results[i][gameid].data.genres
+                                 console.log(categories,"\n");
+                                 models.Category.findOrCreate(
+                                   {
+                                     where:{
+                                       description:categories[0].description
+                                     }
+                                   }).then(function (category) {
+                                     models.Game.find(
+                                       {
+                                         where:{
+                                           appid:gameid
+                                         }
+                                       }).then(function (game) {
+                                         game.update({age:age,price:price})
+                                         game.addCategory(category)
+                                       })
+                                 })
+                               }
+                               break;
+                             }
+                           }
                         }).catch(function (err) {
                           console.error(err);
                         })
