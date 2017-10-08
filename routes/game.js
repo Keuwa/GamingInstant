@@ -13,6 +13,9 @@ module.exports = function(server){
   .get('/:gameId',
   server.actions.game.get)
 
+  .get('/search',
+  server.actions.game.find)
+
 
   //.post('/logout',
   //    server.middlewares.ensureAuthenticated,

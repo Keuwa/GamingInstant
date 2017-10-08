@@ -2,6 +2,8 @@
 * Created by Grunt on 06/09/2017.
 */
 //var array;
+"use strict";
+
 var errors = 0;
 var models = require('../../models');
 var errors = 0;
@@ -189,6 +191,7 @@ module.exports = function (server) {
               models.Game.findAll({}).then(function (games) {
                 let promises = []
                 for(var game in games){
+                  console.log("\n ID : ",games[game].appid);
                   var options = {
                     url: 'http://store.steampowered.com/api/appdetails?appids='+games[game].appid,
                     json: true,
@@ -224,7 +227,8 @@ module.exports = function (server) {
                                  models.Category.findOrCreate(
                                    {
                                      where:{
-                                       description:categories[0].description
+                                       description:categories[0].description,
+                                       appid:gameid
                                      }
                                    }).then(function (category) {
                                      models.Game.find(
@@ -234,7 +238,6 @@ module.exports = function (server) {
                                          }
                                        }).then(function (game) {
                                          game.update({age:age,price:price})
-                                         game.addCategory(category)
                                        })
                                  })
                                }

@@ -19,12 +19,7 @@ module.exports = function (sequelize, Datatypes) {
     Category.associate = function(models) {
     // Using additional options like CASCADE etc for demonstration
     // Can also simply do Task.belongsTo(models.User);
-    models.Category.belongsToMany(models.User,
-      {
-        as: 'Category',
-        allowNull: true,
-        through: 'category_game'
-      })
+    models.Category.belongsTo(models.User)
   }
 
     return Category;

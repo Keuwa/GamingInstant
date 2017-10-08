@@ -3,21 +3,20 @@
 */
 module.exports = function (sequelize, Datatypes) {
 
-    var Game = sequelize.define('Game', {
+    var Stats = sequelize.define('Stats', {
         appid: {
             type: Datatypes.UUID,
             defaultValue: Datatypes.UUIDV4,
             primaryKey: true,
             index: true
         },
-        name: Datatypes.STRING,
-        required_age: Datatypes.INTEGER,
-        price: Datatypes.STRING
+        playtime_2weeks: {
+          type: Datatypes.INTEGER
+        },
+        playtime_forever: {
+          type: Datatypes.INTEGER
+        },
     });
 
-    Game.associate = function(models) {
-        Game.hasMany(models.Category)
-      }
-
-    return Game;
+    return Stats;
 };
