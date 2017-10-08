@@ -10,11 +10,11 @@ module.exports = function(server){
   .get('/',
   server.actions.game.getAll)
 
-  .get('/:gameId',
-  server.actions.game.get)
-
-  .get('/search',
+  .get('/search/',
   server.actions.game.find)
+
+  .get('/:gameId/',
+  server.actions.game.get)
 
 
   //.post('/logout',
