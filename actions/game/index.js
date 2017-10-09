@@ -6,6 +6,7 @@ module.exports = function(server) {
         init: require('./init')(server),
         get: require('./get')(server),
         getAll: require('./getAll')(server),
-        find: require('./find')(server)
+        find: require('./find')(server),
+        putStats: require('./putStats')(server)
     }
 };

@@ -12,17 +12,33 @@ module.exports = function(server) {
       var result = {}
       for(var i = 0 ; i < instanceGame.length ; i++ ){
         //do stats
-        console.log(instanceGame[i]);
-        /*if(typeof result[instanceGame[i].gameId] == "undefined")
+        //console.log(instanceGame[i]);
+        if(typeof result[instanceGame[i].gameId] == "undefined")
         {
           result[instanceGame[i].gameId] = {
             count:0,
-            minutes:0.0
+            minutes:0
           }
-        }*/
+        }
+        console.log("hello : ",instanceGame[i].gameId,[instanceGame[i].playedTime]);
 
         result[instanceGame[i].gameId].count += 1;
-        result[instanceGame[i].gameId].minutes += [instanceGame[i].playedTime];
+        result[instanceGame[i].gameId].minutes += parseFloat([instanceGame[i].playedTime]);
+        models.Game.findOne({
+          where:{
+            appid:instanceGame[i].gameId
+          }
+        }).then(function (game) {
+          game.update({
+            records_count:result[game.appid].count,
+            minutes_mean:result[game.appid].minutes/result[game.appid].count
+          }).then(function (game) {
+            console.log(game);
+          })
+        }).catch(function (err) {
+          console.log(err);
+          return res.status(500).send(err);
+        })
       }
       //MAKE STATS
       console.log(result);

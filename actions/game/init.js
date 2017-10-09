@@ -186,90 +186,90 @@ module.exports = function (server) {
 
             results2.then(function(records) {
               console.log("hello");
+              return res.status(200).send("OK");
 
-
-              models.Game.findAll({}).then(function (games) {
-                let promises = []
-                for(var game in games){
-                  console.log("\n ID : ",games[game].appid);
-                  var options = {
-                    url: 'http://store.steampowered.com/api/appdetails?appids='+games[game].appid,
-                    json: true,
-                    headers: {
-                      'content-type': 'application/json; charset=utf-8'
-                    }
-                  };
-                  promises.push(request.get(options))
-                }
-
-                Promise.all(promises).then(function (results) {
-                  let price;
-                  let age;
-                  let categories;
-                  let promiseAddCategoryToBdd = []
-                  for(let result in results){
-                    for(let gameid in results[result]){
-
-                      models.Game
-                        .findOne({id:gameid})
-                        .then(function (game) {
-                           for(let i in results){
-                             if(Object.keys(results[i])[0] == gameid){
-                               if(results[i][gameid].success){
-                                 if(typeof(results[i][gameid].price_overview) != "undefined"){
-                                   price =  console.log("price : ",results[i][gameid].price_overview.final);
-                                 }else{
-                                   price = 0
-                                 }
-                                 age = results[i][gameid].data.required_age
-                                 categories = results[i][gameid].data.genres
-                                 console.log(categories,"\n");
-                                 models.Category.findOrCreate(
-                                   {
-                                     where:{
-                                       description:categories[0].description,
-                                       appid:gameid
-                                     }
-                                   }).then(function (category) {
-                                     models.Game.find(
-                                       {
-                                         where:{
-                                           appid:gameid
-                                         }
-                                       }).then(function (game) {
-                                         game.update({age:age,price:price})
-                                       })
-                                 })
-                               }
-                               break;
-                             }
-                           }
-                        }).catch(function (err) {
-                          console.error(err);
-                        })
-
-                        // models.Category.bulkCreate(categories).then(function () {
-                        //   console.log("done");
-                        // })
-                        // .catch(function (err) {
-                        //   console.error(err);
-                        // })
-
-
-                        //Retrieve and create catégory if needed
-                        //When created --> add them to the game
-                        //REturn 200
-                      }
-                    }
-                    //console.log(results[1][result].data.price_overview);
-                  return res.status(200).send("OK");
-                }).catch(function (err) {
-                  console.error(err);
-                })
-
-              }).catch(function (err) {
-                console.log(err);
-              })
+              // models.Game.findAll({}).then(function (games) {
+              //   let promises = []
+              //   for(var game in games){
+              //     console.log("\n ID : ",games[game].appid);
+              //     var options = {
+              //       url: 'http://store.steampowered.com/api/appdetails?appids='+games[game].appid,
+              //       json: true,
+              //       headers: {
+              //         'content-type': 'application/json; charset=utf-8'
+              //       }
+              //     };
+              //     promises.push(request.get(options))
+              //   }
+              //
+              //   Promise.all(promises).then(function (results) {
+              //     let price;
+              //     let age;
+              //     let categories;
+              //     let promiseAddCategoryToBdd = []
+              //     for(let result in results){
+              //       for(let gameid in results[result]){
+              //
+              //         models.Game
+              //           .findOne({id:gameid})
+              //           .then(function (game) {
+              //              for(let i in results){
+              //                if(Object.keys(results[i])[0] == gameid){
+              //                  if(results[i][gameid].success){
+              //                    if(typeof(results[i][gameid].price_overview) != "undefined"){
+              //                      price =  console.log("price : ",results[i][gameid].price_overview.final);
+              //                    }else{
+              //                      price = 0
+              //                    }
+              //                    age = results[i][gameid].data.required_age
+              //                    categories = results[i][gameid].data.genres
+              //                    console.log(categories,"\n");
+              //                    models.Category.findOrCreate(
+              //                      {
+              //                        where:{
+              //                          description:categories[0].description,
+              //                          appid:gameid
+              //                        }
+              //                      }).then(function (category) {
+              //                        models.Game.find(
+              //                          {
+              //                            where:{
+              //                              appid:gameid
+              //                            }
+              //                          }).then(function (game) {
+              //                            game.update({age:age,price:price})
+              //                          })
+              //                    })
+              //                  }
+              //                  break;
+              //                }
+              //              }
+              //           }).catch(function (err) {
+              //             console.error(err);
+              //           })
+              //
+              //           // models.Category.bulkCreate(categories).then(function () {
+              //           //   console.log("done");
+              //           // })
+              //           // .catch(function (err) {
+              //           //   console.error(err);
+              //           // })
+              //
+              //
+              //           //Retrieve and create catégory if needed
+              //           //When created --> add them to the game
+              //           //REturn 200
+              //         }
+              //       }
+              //       //console.log(results[1][result].data.price_overview);
+              //     return res.status(200).send("OK");
+              //   }).catch(function (err) {
+              //     console.error(err);
+              //   })
+              //
+              // }).catch(function (err) {
+              //   console.log(err);
+              // })
             });
 
           });

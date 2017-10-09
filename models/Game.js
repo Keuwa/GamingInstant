@@ -12,7 +12,9 @@ module.exports = function (sequelize, Datatypes) {
         },
         name: Datatypes.STRING,
         required_age: Datatypes.INTEGER,
-        price: Datatypes.STRING
+        price: Datatypes.STRING,
+        records_count: Datatypes.INTEGER,
+        minutes_mean: Datatypes.FLOAT
     });
 
     Game.associate = function(models) {

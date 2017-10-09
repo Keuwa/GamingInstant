@@ -7,6 +7,9 @@ module.exports = function(server){
   .post('/',
   server.actions.game.init)
 
+  .post('/stats/',
+  server.actions.game.putStats)
+
   .get('/',
   server.actions.game.getAll)
 
@@ -15,6 +18,7 @@ module.exports = function(server){
 
   .get('/:gameId/',
   server.actions.game.get)
+
 
 
   //.post('/logout',
