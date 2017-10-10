@@ -30,143 +30,143 @@ module.exports = function (server) {
     .then(function(result) {
       console.log(result);
 
-      result={
-	"applist": {
-		"apps": [
-			{
-				"appid": 5,
-				"name": "Half-Life"
-			},
-			{
-				"appid": 7,
-				"name": "Steam Client"
-			},
-			{
-				"appid": 8,
-				"name": "winui2"
-			},
-			{
-				"appid": 10,
-				"name": "Counter-Strike"
-			},
-			{
-				"appid": 20,
-				"name": "Team Fortress Classic"
-			},
-			{
-				"appid": 30,
-				"name": "Day of Defeat"
-			},
-			{
-				"appid": 40,
-				"name": "Deathmatch Classic"
-			},
-			{
-				"appid": 50,
-				"name": "Half-Life: Opposing Force"
-			},
-			{
-				"appid": 60,
-				"name": "Ricochet"
-			},
-			{
-				"appid": 70,
-				"name": "Half-Life"
-			},
-			{
-				"appid": 80,
-				"name": "Counter-Strike: Condition Zero"
-			},
-			{
-				"appid": 90,
-				"name": "Half-Life Dedicated Server"
-			},
-			{
-				"appid": 92,
-				"name": "Codename Gordon"
-			},
-			{
-				"appid": 100,
-				"name": "Counter-Strike: Condition Zero Deleted Scenes"
-			},
-			{
-				"appid": 130,
-				"name": "Half-Life: Blue Shift"
-			},
-			{
-				"appid": 150,
-				"name": "Counter-Strike Steamworks Beta"
-			},
-			{
-				"appid": 205,
-				"name": "Source Dedicated Server"
-			},
-			{
-				"appid": 210,
-				"name": "Source Dedicated Server"
-			},
-			{
-				"appid": 211,
-				"name": "Source SDK"
-			},
-			{
-				"appid": 215,
-				"name": "Source SDK Base 2006"
-			},
-			{
-				"appid": 218,
-				"name": "Source SDK Base 2007"
-			},
-			{
-				"appid": 219,
-				"name": "Half-Life 2: Demo"
-			},
-			{
-				"appid": 220,
-				"name": "Half-Life 2"
-			},
-			{
-				"appid": 240,
-				"name": "Counter-Strike: Source"
-			},
-			{
-				"appid": 260,
-				"name": "Counter-Strike: Source Beta"
-			},
-			{
-				"appid": 280,
-				"name": "Half-Life: Source"
-			},
-			{
-				"appid": 300,
-				"name": "Day of Defeat: Source"
-			},
-			{
-				"appid": 304,
-				"name": "Day of Defeat: Source Press Review"
-			},
-			{
-				"appid": 310,
-				"name": "Source 2007 Dedicated Server"
-			},
-			{
-				"appid": 320,
-				"name": "Half-Life 2: Deathmatch"
-			},
-			{
-				"appid": 340,
-				"name": "Half-Life 2: Lost Coast"
-			},
-			{
-				"appid": 360,
-				"name": "Half-Life Deathmatch: Source"
-			},
-			{
-				"appid": 364,
-				"name": "HL1:MP Linux client"
-			}]
-    }
-  }
+  //     result={
+	// "applist": {
+	// 	"apps": [
+	// 		{
+	// 			"appid": 5,
+	// 			"name": "Half-Life"
+	// 		},
+	// 		{
+	// 			"appid": 7,
+	// 			"name": "Steam Client"
+	// 		},
+	// 		{
+	// 			"appid": 8,
+	// 			"name": "winui2"
+	// 		},
+	// 		{
+	// 			"appid": 10,
+	// 			"name": "Counter-Strike"
+	// 		},
+	// 		{
+	// 			"appid": 20,
+	// 			"name": "Team Fortress Classic"
+	// 		},
+	// 		{
+	// 			"appid": 30,
+	// 			"name": "Day of Defeat"
+	// 		},
+	// 		{
+	// 			"appid": 40,
+	// 			"name": "Deathmatch Classic"
+	// 		},
+	// 		{
+	// 			"appid": 50,
+	// 			"name": "Half-Life: Opposing Force"
+	// 		},
+	// 		{
+	// 			"appid": 60,
+	// 			"name": "Ricochet"
+	// 		},
+	// 		{
+	// 			"appid": 70,
+	// 			"name": "Half-Life"
+	// 		},
+	// 		{
+	// 			"appid": 80,
+	// 			"name": "Counter-Strike: Condition Zero"
+	// 		},
+	// 		{
+	// 			"appid": 90,
+	// 			"name": "Half-Life Dedicated Server"
+	// 		},
+	// 		{
+	// 			"appid": 92,
+	// 			"name": "Codename Gordon"
+	// 		},
+	// 		{
+	// 			"appid": 100,
+	// 			"name": "Counter-Strike: Condition Zero Deleted Scenes"
+	// 		},
+	// 		{
+	// 			"appid": 130,
+	// 			"name": "Half-Life: Blue Shift"
+	// 		},
+	// 		{
+	// 			"appid": 150,
+	// 			"name": "Counter-Strike Steamworks Beta"
+	// 		},
+	// 		{
+	// 			"appid": 205,
+	// 			"name": "Source Dedicated Server"
+	// 		},
+	// 		{
+	// 			"appid": 210,
+	// 			"name": "Source Dedicated Server"
+	// 		},
+	// 		{
+	// 			"appid": 211,
+	// 			"name": "Source SDK"
+	// 		},
+	// 		{
+	// 			"appid": 215,
+	// 			"name": "Source SDK Base 2006"
+	// 		},
+	// 		{
+	// 			"appid": 218,
+	// 			"name": "Source SDK Base 2007"
+	// 		},
+	// 		{
+	// 			"appid": 219,
+	// 			"name": "Half-Life 2: Demo"
+	// 		},
+	// 		{
+	// 			"appid": 220,
+	// 			"name": "Half-Life 2"
+	// 		},
+	// 		{
+	// 			"appid": 240,
+	// 			"name": "Counter-Strike: Source"
+	// 		},
+	// 		{
+	// 			"appid": 260,
+	// 			"name": "Counter-Strike: Source Beta"
+	// 		},
+	// 		{
+	// 			"appid": 280,
+	// 			"name": "Half-Life: Source"
+	// 		},
+	// 		{
+	// 			"appid": 300,
+	// 			"name": "Day of Defeat: Source"
+	// 		},
+	// 		{
+	// 			"appid": 304,
+	// 			"name": "Day of Defeat: Source Press Review"
+	// 		},
+	// 		{
+	// 			"appid": 310,
+	// 			"name": "Source 2007 Dedicated Server"
+	// 		},
+	// 		{
+	// 			"appid": 320,
+	// 			"name": "Half-Life 2: Deathmatch"
+	// 		},
+	// 		{
+	// 			"appid": 340,
+	// 			"name": "Half-Life 2: Lost Coast"
+	// 		},
+	// 		{
+	// 			"appid": 360,
+	// 			"name": "Half-Life Deathmatch: Source"
+	// 		},
+	// 		{
+	// 			"appid": 364,
+	// 			"name": "HL1:MP Linux client"
+	// 		}]
+  //   }
+  // }
 
       var actions = result.applist.apps.map(fn);
       var results = Promise.all(actions);

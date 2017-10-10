@@ -13,7 +13,7 @@ module.exports = function(server){
   .get('/',
   server.actions.game.getAll)
 
-  .get('/search/',
+  .get('/search/',server.middlewares.ensureAuthenticated,
   server.actions.game.find)
 
   .get('/:gameId/',
